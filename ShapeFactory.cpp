@@ -2,13 +2,12 @@
 #include "ShapeFactory.h"
 
 //mapTypeShapeFactoryByType ShapeFactory::mapShapeTypeByFactory;
-ShapeFactory* ShapeFactory::mInstance = NULL;
+//ShapeFactory* ShapeFactory::mInstance = NULL;
 
-ShapeFactory * ShapeFactory::GetShapeFactory()
+ShapeFactory& ShapeFactory::GetShapeFactory()
 {
-    if (!mInstance)
-        mInstance = new ShapeFactory();
-    return mInstance;
+    static ShapeFactory instance;
+    return instance;
 }
 
 Shape * ShapeFactory::CreateShape(ShapeType type)

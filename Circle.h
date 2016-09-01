@@ -12,5 +12,6 @@ public:
     virtual ShapeType GetType() { return Type_Circle; }
 
 private:
-    float direction[3];
+    float center[3];
+    float radius;
 };

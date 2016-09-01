@@ -11,5 +11,5 @@ public:
     virtual ~Rectangle();
     virtual ShapeType GetType() { return Type_Rectangle; }
 private:
-    float values[3];
+    float points[4][3];
 };

@@ -5,7 +5,7 @@ using namespace std;
 
 #include "Shape.h"
 
-#define REGISTER_CLASS(objectClass) static DerivedFactory<objectClass> CircleObject(Type_ ## objectClass)
+#define REGISTER_CLASS(objectClass) static DerivedFactory<objectClass> shape##objectClass(Type_ ## objectClass);
 
 class Shape;
 class ShapeFactory;
@@ -15,7 +15,6 @@ class ShapeFactory
 {
 private:
     mapTypeShapeFactoryByType mapShapeTypeByFactory;
-    static ShapeFactory* mInstance;
 protected:
     ShapeFactory() {}
     virtual Shape* Create() { return NULL; }
@@ -23,7 +22,7 @@ private:
     ShapeFactory(const ShapeFactory&);
 public:
     virtual ~ShapeFactory() {}
-    static ShapeFactory* GetShapeFactory();
+    static ShapeFactory& GetShapeFactory();
 
     Shape* CreateShape(ShapeType type);
 
@@ -37,7 +36,7 @@ class DerivedFactory : public ShapeFactory
 public:
     DerivedFactory(ShapeType type)
     {
-        ShapeFactory::GetShapeFactory()->RegisterFactory(type, this);
+        ShapeFactory::GetShapeFactory().RegisterFactory(type, this);
     }
     ~DerivedFactory() {}
     Shape* Create() { return new ShapeClass(); }

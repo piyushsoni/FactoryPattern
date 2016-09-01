@@ -2,8 +2,7 @@
 #include "Rectangle.h"
 #include "ShapeFactory.h"
 
-//static DerivedFactory<Rectangle> RectangleObject(Type_Rectangle);
-REGISTER_CLASS(Rectangle);
+REGISTER_CLASS(Rectangle)
 
 Rectangle::Rectangle()
 {
