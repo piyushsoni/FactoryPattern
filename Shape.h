@@ -8,7 +8,7 @@ enum ShapeType
     Type_Unknown,
     Type_Circle,
     Type_Rectangle,
-    Type_Mesh
+    Type_Polygon
 };
 
 class Shape

@@ -2,7 +2,7 @@
 #include "Circle.h"
 #include "ShapeFactory.h"
 
-REGISTER_CLASS(Circle)
+static DerivedFactory<Circle> CircleFactory(Type_Circle);
 
 Circle::Circle()
 {
